@@ -1,4 +1,38 @@
 Alba::Application.routes.draw do
+  # get "welcome/index"
+  root :to => 'welcome#index'
+
+  resources :sites
+
+  get "password_resets/create"
+
+  get "password_resets/edit"
+
+  get "password_resets/update"
+
+  get "user_sessions/new"
+
+  get "user_sessions/create"
+
+  get "user_sessions/destroy"
+
+  resources :users do
+    member do
+      get :activate
+    end
+  end
+  
+  resources :user_sessions
+
+  match 'login' => 'user_sessions#new', :as => :login
+  match 'logout' => 'user_sessions#destroy', :as => :logout
+  
+  resources :password_resets
+
+  resources :sites
+  
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +82,7 @@ Alba::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  
 
   # See how all your routes lay out with "rake routes"
 
