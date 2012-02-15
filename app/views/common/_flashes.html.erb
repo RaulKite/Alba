@@ -1,0 +1,20 @@
+<% unless flash[:notice].blank? %>
+    <%= content_tag :div, flash[:notice], :class => "alert alert-info" , :id => "notice" %>
+    <%= content_tag :script, :type => "text/javascript" do -%>
+              setTimeout("new Effect.Fade('notice');", 15000);
+    <% end %>    
+<% end %>
+
+<% unless flash[:error].blank? %>
+    <%= content_tag :div, flash[:error], :class => "alert alert-error" , :id => "error" %>
+    <%= content_tag :script, :type => "text/javascript" do -%>
+              setTimeout("new Effect.Fade('error');", 15000);
+    <% end %>    
+<% end %>
+
+<% unless flash[:alert].blank? %>
+    <%= content_tag :div, flash[:alert], :class => "alert" , :id => "alert" %>
+    <%= content_tag :script, :type => "text/javascript" do -%>
+              setTimeout("new Effect.Fade('alert');", 15000);
+    <% end %>    
+<% end %>

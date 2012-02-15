@@ -1,0 +1,32 @@
+   <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Alba</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><%= link_to 'Home', root_path %></li>
+              <li ><% if current_user %>
+                     Currently active users: <%= current_users_list %>                  
+                   <% end %>
+                </li>
+            </ul>
+            <p class="navbar-text pull-right">
+              <% 
+              if current_user 
+              %>              
+              Logged in as <%= link_to current_user.email, current_user %> <%= link_to "(logout)", :logout  %>
+              <% else %>
+              <%= link_to 'Login', :login %> or <%= link_to 'Sign_up', new_user_path  %>
+              <% end %>
+            </p>
+              
+              
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
