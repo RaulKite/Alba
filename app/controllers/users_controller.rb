@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-skip_before_filter :require_login, :only => [:index, :new, :create, :activate]
+  before_filter :require_login, :except => [:index, :new, :create, :activate]
 
   
   # GET /users
@@ -47,7 +47,7 @@ skip_before_filter :require_login, :only => [:index, :new, :create, :activate]
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to :users, :notice => 'User was successfully created.' }
+        format.html { redirect_to root_path, :notice => 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }

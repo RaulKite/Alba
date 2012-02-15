@@ -1,12 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :require_login 
   helper_method :current_users_list
-  load_and_authorize_resource
-
-  rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, :alert => exception.message
-  end
 
 
 protected

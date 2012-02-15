@@ -1,6 +1,6 @@
 class SitesController < ApplicationController
    before_filter :require_login
-  
+
   # GET /sites
   # GET /sites.json
   def index
