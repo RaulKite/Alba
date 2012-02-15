@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  include Rolify::Roles
+  # extend Rolify::Dynamic
+  has_and_belongs_to_many :roles, :join_table => :users_roles
   authenticates_with_sorcery! 
   attr_accessible :email, :password, :password_confirmation, :username
 
