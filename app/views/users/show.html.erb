@@ -1,25 +1,10 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Username:</b>
-  <%= @user.username %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
-
-<p>
-  <b>Crypted password:</b>
-  <%= @user.crypted_password %>
-</p>
-
-<p>
-  <b>Salt:</b>
-  <%= @user.salt %>
-</p>
+<h2><%= @user.username %> (<%= @user.email %>)</h2>
+  
+  <p>Last time you use Hyedra was at <%= @user.last_activity_at %>.</p>
+  
 
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+
+<%= link_to 'Edit', edit_user_path(@user), :class => "btn btn-primary"  %> 
+<%= link_to 'Back', users_path, :class => "btn btn-primary"  %>
+</div>

@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for(@user , :html => { :class => "form-horizontal"} ) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -10,24 +10,30 @@
       </ul>
     </div>
   <% end %>
+  
+  <div class="control-group">      
+    <%= f.label :username,  :class => "control-label", :id => "input01" %>
+    <%= f.text_field :username, :class => "input-xlarge", :id => "input01" %>
+  </div>
 
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
+  <div class="control-group">      
+    <%= f.label :email, :class => "control-label", :id => "input02" %>
+    <%= f.text_field :email, :class => "input-xlarge", :id => "input02" %>
   </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+
+  <div class="control-group">      
+   <%= f.label :password, :class => "control-label", :id => "input03"%>
+   <%= f.password_field :password, :class => "input-xlarge", :id => "input03" %>
   </div>
-  <div class="field">
-   <%= f.label :password %><br />
-   <%= f.password_field :password %>
-  </div>
-  <div class="field">
-   <%= f.label :password_confirmation %><br />
-   <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+  <div class="control-group">      
+   <%= f.label :password_confirmation, :class => "control-label", :id => "input04" %>
+   <%= f.password_field :password_confirmation, :class => "input-xlarge", :id => "input04" %>
+  </div>    
+  
+  <div class="form-actions" id ="botones">   
+    <%= f.submit :class => "btn btn-primary" %>
+  
+  
+  
 <% end %>
