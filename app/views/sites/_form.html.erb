@@ -1,4 +1,4 @@
-<%= form_for(@site) do |f| %>
+<%= form_for(@site, :html => { :class => "form-horizontal"}) do |f| %>
   <% if @site.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@site.errors.count, "error") %> prohibited this site from being saved:</h2>
@@ -11,15 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <div class="control-group">      
+    <%= f.label :name,  :class => "control-label", :id => "input01" %>
+    <%= f.text_field :name, :class => "input-xlarge", :id => "input01" %>
   </div>
-  <div class="field">
-    <%= f.label :url %><br />
-    <%= f.text_field :url %>
+
+  <div class="control-group">      
+    <%= f.label :url ,  :class => "control-label", :id => "input02" %>
+    <%= f.text_field :url, :class => "input-xlarge", :id => "input02" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+
+  <div class="form-actions" id ="botones">   
+    <%= f.submit :class => "btn btn-primary" %>
+    
 <% end %>
