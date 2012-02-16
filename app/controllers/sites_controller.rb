@@ -1,6 +1,8 @@
 class SitesController < ApplicationController
-   before_filter :require_login
-
+  before_filter :require_login
+  load_and_authorize_resource
+  
+  
   # GET /sites
   # GET /sites.json
   def index

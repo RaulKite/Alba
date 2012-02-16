@@ -23,7 +23,8 @@
       }
     </style>
     <%= stylesheet_link_tag "bootstrap-responsive"%>
-
+    <%= javascript_include_tag :application %>
+    <%= csrf_meta_tag %>
     <!-- Iconoc favicon y touch -->
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
@@ -58,7 +59,7 @@
       <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <%#= javascript_include_tag "jquery" %>
+    <%= javascript_include_tag "jquery" %>
     <%#= javascript_include_tag "bootstrap-transition" %>
     <%#= javascript_include_tag "bootstrap-alert" %>
     <%#= javascript_include_tag "bootstrap-modal" %>

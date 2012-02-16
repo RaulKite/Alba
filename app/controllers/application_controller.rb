@@ -2,6 +2,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_users_list
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to  '/welcome#index', :alert => exception.message
+  end
 
 protected
 
